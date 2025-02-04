@@ -47,4 +47,4 @@ RUN make test
 #
 FROM base AS prod
 COPY --from=builder /opt/app-root /opt/app-root
-ENTRYPOINT [ "prometheus_exporter_acceptance_tests" ]
+ENTRYPOINT [ "prometheus-exporter-acceptance-tests" ]
