@@ -10,8 +10,8 @@ license = { text = "Apache 2.0" }
 readme = "README.md"
 requires-python = "~= 3.12.0"
 dependencies = [
-    "prometheus-client~=0.21.1",
-    "pydantic-settings~=2.8.0",
+    "prometheus-client~=0.24.1",
+    "pydantic-settings~=2.13.1",
     "requests~=2.32.0",
 ]
 
@@ -25,11 +25,11 @@ dev = [
     # Development dependencies
     "ruff~=0.7",
     "mypy~=1.14",
-    "pytest~=8.3.4",
+    "pytest~=8.4.2",
     "pytest-cov~=7.0.0",
-    "pytest-mock~=3.14.0",
+    "pytest-mock~=3.15.1",
     "types-requests~=2.32.0",
-    "responses~=0.25.6",
+    "responses~=0.26.0",
 ]
 
 [project.scripts]
