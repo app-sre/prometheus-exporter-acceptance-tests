@@ -1,6 +1,6 @@
 #
 # Base image with defaults for all stages
-FROM registry.access.redhat.com/ubi9/python-312@sha256:7adc9bee533e01ff0b98220b67d17aca1280344bf7ad0b663bfc84cee7e1adb5 AS base
+FROM registry.access.redhat.com/ubi9/python-312@sha256:19938cef922089288fe1eccd21682a2cf19cb63bc59d31f91ecdba0b979ba525 AS base
 
 # Keep this version tag in sync with pyproject.toml or feel free to remove it
 LABEL konflux.additional-tags="0.1.0"
