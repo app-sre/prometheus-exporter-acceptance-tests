@@ -1,10 +1,15 @@
+from __future__ import annotations
+
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
 import responses
-from pytest_mock import MockerFixture
 
 from prometheus_exporter_acceptance_tests.runner import CheckResult, check_metrics, run
+
+if TYPE_CHECKING:
+    from pytest_mock import MockerFixture
 
 
 @pytest.fixture
