@@ -1,6 +1,6 @@
 [project]
 name = "prometheus-exporter-acceptance-tests"
-version = "0.1.0"
+version = "0.2.0"
 description = "Generic prometheus exporter acceptance tests"
 authors = [
     # Feel free to add or change authors
@@ -8,11 +8,11 @@ authors = [
 ]
 license = { text = "Apache 2.0" }
 readme = "README.md"
-requires-python = "~= 3.12.0"
+requires-python = "~= 3.14.0"
 dependencies = [
-    "prometheus-client~=0.21.1",
-    "pydantic-settings~=2.8.0",
-    "requests~=2.32.0",
+    "prometheus-client==0.26.0",
+    "pydantic-settings==2.14.2",
+    "requests==2.34.2",
 ]
 
 [project.urls]
@@ -23,13 +23,13 @@ documentation = "https://github.com/app-sre/prometheus-exporter-acceptance-tests
 [dependency-groups]
 dev = [
     # Development dependencies
-    "ruff~=0.7",
-    "mypy~=2.1",
-    "pytest~=8.3.4",
-    "pytest-cov~=7.0.0",
-    "pytest-mock~=3.14.0",
-    "types-requests~=2.32.0",
-    "responses~=0.25.6",
+    "ruff==0.16.1",
+    "mypy==2.3.0",
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "pytest-mock==3.15.1",
+    "types-requests==2.33.0.20260712",
+    "responses==0.26.2",
 ]
 
 [project.scripts]
@@ -48,7 +48,7 @@ only-include = ["prometheus_exporter_acceptance_tests"]
 # Ruff configuration
 [tool.ruff]
 line-length = 88
-src = ["prometheus_exporter_acceptance_tests"]
+src = ["prometheus_exporter_acceptance_tests", "tests"]
 extend-exclude = [
     # exclude some common cache and tmp directories
     ".local",
@@ -61,43 +61,43 @@ fix = true
 preview = true
 select = ["ALL"]
 ignore = [
-    "CPY",     # Missing copyright header
-    "D100",    # Missing docstring in public module
-    "D101",    # Missing docstring in public class
-    "D102",    # Missing docstring in public method
-    "D103",    # Missing docstring in public function
-    "D104",    # Missing docstring in public package
-    "D105",    # Missing docstring in magic method
-    "D107",    # Missing docstring in __init__
-    "D203",    # 1 blank line required before class docstring
-    "D211",    # No blank lines allowed before class docstring
-    "D212",    # multi-line-summary-first-line
-    "D213",    # multi-line-summary-second-line
-    "D4",      # Doc string style
-    "E501",    # Line too long
-    "G004",    # Logging statement uses f-string
-    "PLR0904", # Too many public methods
-    "PLR0913", # Too many arguments
-    "PLR0917", # Too many positional arguments
-    "S101",    # Use of assert detected. Pytest uses assert
-    "S404",    # subprocess import
-    "EM101",   # Exception must not use a string literal, assign to variable first
-    "EM102",   # Exception must not use an f-string literal, assign to variable first
-    "TRY003",  # Avoid specifying long messages outside the exception class
-    "TRY300",  # try-consider-else
+    "CPY",                               # Missing copyright header
+    "undocumented-public-module",        # Missing docstring in public module
+    "undocumented-public-class",         # Missing docstring in public class
+    "undocumented-public-method",        # Missing docstring in public method
+    "undocumented-public-function",      # Missing docstring in public function
+    "undocumented-public-package",       # Missing docstring in public package
+    "undocumented-magic-method",         # Missing docstring in magic method
+    "undocumented-public-init",          # Missing docstring in __init__
+    "incorrect-blank-line-before-class", # 1 blank line required before class docstring
+    "blank-line-before-class",           # No blank lines allowed before class docstring
+    "multi-line-summary-first-line",     # multi-line-summary-first-line
+    "multi-line-summary-second-line",    # multi-line-summary-second-line
+    "D4",                                # Doc string style
+    "line-too-long",                     # Line too long
+    "logging-f-string",                  # Logging statement uses f-string
+    "too-many-public-methods",           # Too many public methods
+    "too-many-arguments",                # Too many arguments
+    "too-many-positional-arguments",     # Too many positional arguments
+    "assert",                            # Use of assert detected. Pytest uses assert
+    "suspicious-subprocess-import",      # subprocess import
+    "raw-string-in-exception",           # Exception must not use a string literal, assign to variable first
+    "f-string-in-exception",             # Exception must not use an f-string literal, assign to variable first
+    "raise-vanilla-args",                # Avoid specifying long messages outside the exception class
+    "try-consider-else",                 # try-consider-else
     # pydoclint
     "DOC",
     # May conflict with the formatter, https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
-    "W191",
-    "E111",
-    "E114",
-    "E117",
-    "D206",
-    "D300",
+    "tab-indentation",
+    "indentation-with-invalid-multiple",
+    "indentation-with-invalid-multiple-comment",
+    "over-indented",
+    "docstring-tab-indentation",
+    "triple-single-quotes",
     "Q",
-    "COM812",
-    "COM819",
-    "ISC001",
+    "missing-trailing-comma",
+    "prohibited-trailing-comma",
+    "single-line-implicit-string-concatenation",
 ]
 [tool.ruff.format]
 preview = true

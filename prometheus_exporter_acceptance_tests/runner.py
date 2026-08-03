@@ -1,12 +1,17 @@
+from __future__ import annotations
+
 import logging
 import re
-from collections.abc import Callable
 from enum import IntEnum
+from typing import TYPE_CHECKING
 
 import requests
 from prometheus_client import CollectorRegistry, Gauge, push_to_gateway
 from prometheus_client.exposition import basic_auth_handler
 from pydantic_settings import BaseSettings
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 logger = logging.getLogger(__name__)
 
